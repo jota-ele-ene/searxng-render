@@ -1,0 +1,20 @@
+use_default_settings: true
+
+general:
+  instance_name: "SearXNG Render"
+  debug: false
+
+server:
+  secret_key: "cambia_esta_clave_larga"
+  bind_address: "0.0.0.0"
+  port: 8080
+
+ui:
+  default_locale: "es"
+
+search:
+  safe_search: 1
+  autocomplete: "duckduckgo"
+  formats:
+    - html
+    - json
