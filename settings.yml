@@ -20,30 +20,38 @@ search:
     - json
 
 engines:
-  keep_only:
-    - duckduckgo
-    - brave
-    - qwant
-    - wikipedia
-    - wikidata
-    - arxiv
-    - crossref
-
-  # Subimos peso a motores generales
   - name: duckduckgo
+    engine: duckduckgo
+    shortcut: d
     disabled: false
     weight: 2
+
   - name: brave
-    disabled: false
-  - name: qwant
+    engine: brave
+    shortcut: br
     disabled: false
 
-  # Motores de conocimiento / papers
+  - name: qwant
+    engine: qwant
+    shortcut: q
+    disabled: false
+
   - name: wikipedia
+    engine: wikipedia
+    shortcut: w
     disabled: false
+
   - name: wikidata
+    engine: wikidata
+    shortcut: wd
     disabled: false
+
   - name: arxiv
+    engine: arxiv
+    shortcut: ax
     disabled: false
+
   - name: crossref
+    engine: crossref
+    shortcut: cr
     disabled: false
