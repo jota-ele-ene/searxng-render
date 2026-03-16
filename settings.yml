@@ -1,28 +1,17 @@
-general:
-  debug: false
-  instance_name: "Mi SearXNG"
+use_default_settings: true
 
 server:
   secret_key: "reemplaza_con_texto_largo_aleatorio_aqui_123"
-  public_instance: false
-
-ui:
-  default_locale: "es"
-  default_theme: simple
+  bind_address: "0.0.0.0"
+  port: 10000
 
 search:
-  safe_search: 1
   formats:
     - html
     - json
 
-engines:
-  - name: duckduckgo
-    engine: duckduckgo
-    shortcut: d
-    disabled: false
-
-  - name: wikipedia
-    engine: wikipedia
-    shortcut: w
-    disabled: false
+use_default_settings:
+  engines:
+    keep_only:
+      - duckduckgo
+      - wikipedia
