@@ -3,8 +3,6 @@ general:
   instance_name: "Mi SearXNG"
 
 server:
-  port: 10000
-  bind_address: "0.0.0.0"
   secret_key: "reemplaza_con_texto_largo_aleatorio_aqui_123"
   public_instance: false
 
@@ -14,7 +12,6 @@ ui:
 
 search:
   safe_search: 1
-  autocomplete: "duckduckgo"
   formats:
     - html
     - json
@@ -24,34 +21,8 @@ engines:
     engine: duckduckgo
     shortcut: d
     disabled: false
-    weight: 2
-
-  - name: brave
-    engine: brave
-    shortcut: br
-    disabled: false
-
-  - name: qwant
-    engine: qwant
-    shortcut: q
-    disabled: false
 
   - name: wikipedia
     engine: wikipedia
     shortcut: w
-    disabled: false
-
-  - name: wikidata
-    engine: wikidata
-    shortcut: wd
-    disabled: false
-
-  - name: arxiv
-    engine: arxiv
-    shortcut: ax
-    disabled: false
-
-  - name: crossref
-    engine: crossref
-    shortcut: cr
     disabled: false
