@@ -1,17 +1,107 @@
 use_default_settings: true
 
 server:
-  secret_key: "reemplaza_con_texto_largo_aleatorio_aqui_123"
-  bind_address: "0.0.0.0"
-  port: 10000
+  secret_key: "24b8484d-ea96-4eb5-accd-7c51f972adff"   # cambia esto
+  limiter: false                    # crítico: desactiva rate-limit para el agente
+  image_proxy: false
+  method: "GET"                     # permite llamadas GET simples desde el script
 
 search:
-  formats:
+  safe_search: 0
+  autocomplete: ""
+  default_lang: "auto"
+  ban_time_on_fail: 5               # segundos de penalización si un motor falla
+  max_ban_time_on_fail: 120
+  formats:                          # habilita JSON (imprescindible para el agente)
     - html
     - json
 
-use_default_settings:
-  engines:
-    keep_only:
-      - duckduckgo
-      - wikipedia
+engines:
+  # ── GENERALES (peso alto = más presencia en ranking fusionado) ──
+  - name: google
+    engine: google
+    shortcut: g
+    categories: [general, news]
+    timeout: 4.0
+    disabled: false
+    weight: 3
+
+  - name: bing
+    engine: bing
+    shortcut: b
+    categories: [general, news]
+    timeout: 4.0
+    disabled: false
+    weight: 2
+
+  - name: brave
+    engine: brave
+    shortcut: br
+    categories: [general, news]
+    timeout: 4.0
+    disabled: false
+    weight: 2
+
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+    categories: general
+    timeout: 4.0
+    disabled: false
+    weight: 1
+
+  # ── NOTICIAS (esencial para un radar de tendencias) ──
+  - name: google news
+    engine: google_news
+    shortcut: gn
+    categories: news
+    timeout: 4.0
+    disabled: false
+    weight: 3
+
+  - name: bing news
+    engine: bing_news
+    shortcut: bn
+    categories: news
+    timeout: 4.0
+    disabled: false
+    weight: 2
+
+  # ── FUENTES ESPECIALIZADAS Web3/IA/Quantum ──
+  - name: arxiv
+    engine: arxiv
+    shortcut: arx
+    categories: science
+    timeout: 6.0
+    disabled: false
+    weight: 2
+
+  - name: github
+    engine: github
+    shortcut: gh
+    categories: it
+    timeout: 5.0
+    disabled: false
+    weight: 1
+
+  - name: wikipedia
+    engine: wikipedia
+    shortcut: w
+    categories: general
+    timeout: 3.0
+    disabled: false
+    weight: 1
+
+outgoing:
+  request_timeout: 5.0
+  max_request_timeout: 10.0
+  pool_connections: 100
+  pool_maxsize: 20             # permite las ~24 queries casi en paralelo
+
+enabled_plugins:
+  - Tracker_URL_remover        # limpia UTM y parámetros de tracking de las URLs
+  - Hash_plugin
+
+ui:
+  default_theme: simple
+  static_use_hash: true
