@@ -1,6 +1,6 @@
 FROM searxng/searxng:latest
 
-# Haz que escuche en 0.0.0.0:8080 (Render u otro PaaS necesita esto)
-ENV UWSGI_LISTEN=0.0.0.0:8080
+ENV SEARXNG_SECRET="reemplaza_con_texto_largo_aleatorio_aqui_123"
+ENV SEARXNG_BIND_ADDRESS="0.0.0.0:10000"
 
-EXPOSE 8080
+EXPOSE 10000
