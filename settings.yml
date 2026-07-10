@@ -15,6 +15,7 @@ search:
   formats:                          # habilita JSON (imprescindible para el agente)
     - html
     - json
+  enable_api: true
 
 engines:
   # ── GENERALES (peso alto = más presencia en ranking fusionado) ──
